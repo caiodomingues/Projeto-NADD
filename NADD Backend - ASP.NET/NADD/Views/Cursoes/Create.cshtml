@@ -1,0 +1,35 @@
+﻿@model NADD.Models.Curso
+
+@{
+    ViewData["Title"] = "Registro";
+}
+
+<h2>Registrar</h2>
+
+<h4>Curso</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NomeCurso" class="control-label"></label>
+                <input asp-for="NomeCurso" class="form-control" />
+                <span asp-validation-for="NomeCurso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AreaId" class="control-label">Area</label>
+                <select asp-for="AreaId" class ="form-control" asp-items="ViewBag.AreaId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-default">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,25 @@
+﻿@model NADD.Models.Area
+
+@{
+    ViewData["Title"] = "Excluir";
+}
+
+<h2>Excluir</h2>
+
+<h3>Você tem certeza que você deseja deletar?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeArea)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NomeArea)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="AreaId" />
+        <input type="submit" value="Excluir" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-default">Voltar</a>
+    </form>
+</div>

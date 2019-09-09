@@ -1,0 +1,91 @@
+﻿@model IEnumerable<NADD.Models.Avaliacao>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Avaliações</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-info">Nova Avaliação</a>
+</p>
+<div class="table-responsive-xl">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nome do Avaliador </th>
+                <th scope="col">Email</th>
+                <th scope="col">Hora de Inicio</th>
+                <th scope="col">Hora de Conclusão</th>
+                <th scope="col">Valor da Prova</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.ValorQuestExp)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.RefBibliograficas)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.PQuestMultdisc)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Eqdistvquest)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Ppquestcontext)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Observacao)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.QtyQuestoes)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Media)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.TotValor)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Disciplinas)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td scope="row">
+                        @Html.DisplayFor(modelItem => item.NomeAvaliador)
+                    </td>
+                    <td scope="row">
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td scope="row">
+                        @Html.DisplayFor(modelItem => item.HoraInicio)
+                    </td>
+                    <td scope="row">
+                        @Html.DisplayFor(modelItem => item.HoraConclusao)
+                    </td>
+                    <td scope="row">
+                        @Html.DisplayFor(modelItem => item.ValorProvaExp)
+                    </td>
+                    <td scope="row">
+                        @Html.DisplayFor(modelItem => item.ValorQuestExp)
+                    </td>
+                    <td scope="row">
+                        @Html.DisplayFor(modelItem => item.RefBibliograficas)
+                    </td>
+                    <td scope="row">
+                        @Html.DisplayFor(modelItem => item.PQuestMultdisc)
+                    </td>
+                    <td scope="row">
+                        @Html.DisplayFor(modelItem => item.Eqdistvquest)
+                    </td>
+                    <td scope="row">
+                        @Html.DisplayFor(modelItem => item.Ppquestcontext)
+                    </td>
+                    <td scope="row">
+                        @Html.DisplayFor(modelItem => item.Observacao)
+                    </td>
+                    <td scope="row">
+                        @Html.DisplayFor(modelItem => item.QtyQuestoes)
+                    </td>
+                    <td scope="row">
+                        @Html.DisplayFor(modelItem => item.Media)
+                    </td>
+                    <td scope="row">
+                        @Html.DisplayFor(modelItem => item.TotValor)
+                    </td>
+                    <td scope="row">
+                        @Html.DisplayFor(modelItem => item.Disciplinas.NomeDisciplina)
+                    </td>
+                    <td class="pull-right">
+                        <a asp-action="Details" asp-route-id="@item.AvaliacaoId" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-eye-open"></i></a>
+                        <a asp-action="Delete" asp-route-id="@item.AvaliacaoId" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></a>
+                        <a asp-action="Edit" asp-route-id="@item.AvaliacaoId" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-pencil"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
