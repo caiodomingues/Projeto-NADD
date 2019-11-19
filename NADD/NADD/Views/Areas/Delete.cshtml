@@ -1,0 +1,41 @@
+﻿@model NADD.Models.Area
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2 class="sub-titulo">Deletar Areas</h2>
+
+<h3>Tem certeza que deseja EXCLUIR ?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeArea)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NomeArea)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DtCriacao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DtCriacao)
+        </dd>
+        <!--dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt-->
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete" class="">
+        <div class="col-md-12">
+            <input type="hidden" asp-for="AreaId" />
+            <a asp-action="Index" class="btn btn-primary col-md-2">Voltar</a>            
+            <div class="col-md-8"></div>
+            <input type="submit" value="Delete" class="btn btn-danger col-md-2" />
+        </div>
+    </form>
+</div>

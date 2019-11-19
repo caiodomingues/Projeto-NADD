@@ -1,0 +1,131 @@
+﻿@model List<NADD.Models.Questoes>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RELATÓRIO PDF</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!--script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></!--script-->
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <style>
+        .tamanho-banner-1 {
+            width: 60%;
+        }
+
+        .titulo-banner {
+            padding-top: 10%;
+            font-size: 30px !important;
+        }
+
+        .title-link {
+            font-size: 15px;
+        }
+
+        .home-body {
+            padding: 5% !important;
+        }
+
+        .sub-titulo {
+            text-align: center !important;
+        }
+
+        .opcoes {
+            margin-left: 5px;
+        }
+
+        .botao-top {
+            margin-top: 10px;
+        }
+
+        .espaco-colunas {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .desc {
+            font-size: 20px !important;
+        }
+    </style>
+</head>
+<body>
+    <table class="table">
+        <thead>
+            <tr>
+                <!--<th>Id Questao</th>-->
+                <th>Número Questão</th>
+                <th>Tipo Questão</th>
+                <th>Obs.</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <!--<td class="col-md-3">@Html.DisplayFor(modelItem => item.QuestoesId)</td>-->
+                    <td class="col-md-3">@Html.DisplayFor(modelItem => item.NumeroQuestao)</td>
+                    <td class="col-md-3">
+                        @{
+                            var opcao = "";
+                            if (@item.Tipo.ToString() == "1")
+                            { opcao = "Textual"; }
+                            else { opcao = "Multipla escolha"; }
+                        }
+                        @opcao
+                    </td>
+                    <td class="col-md-3">@Html.DisplayFor(modelItem => item.Observacao)</td>
+                    <td class="col-md-3">@Html.DisplayFor(modelItem => item.Avaliacao.Periodo)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/browser.min.js"></script>
+    <script src="~/js/breakpoints.min.js"></script>
+    <script src="~/js/util.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/js/jquery.mask.js"></script>
+    <script>
+        $('.datezada').mask('00/00/0000');
+        $('.time').mask('00:00:00');
+        $('.date_time').mask('00/00/0000 00:00:00');
+        $('.cep').mask('00000-000');
+        $('.phone').mask('0000-0000');
+        $('.phone_with_ddd').mask('(00) 0000-0000');
+        $('.phone_us').mask('(000) 000-0000');
+        $('.mixed').mask('AAA 000-S0S');
+        $('.cpf').mask('000.000.000-00', { reverse: true });
+        $('.cnpj').mask('00.000.000/0000-00', { reverse: true });
+        $('.money').mask('000.000.000.000.000,00', { reverse: true });
+        $('.money2').mask("#.##0,00", { reverse: true });
+        $('.ip_address').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
+            translation: {
+                'Z': {
+                    pattern: /[0-9]/, optional: true
+                }
+            }
+        });
+        $('.ip_address').mask('099.099.099.099');
+        $('.percent').mask('##0,00%', { reverse: true });
+        $('.clear-if-not-match').mask("00/00/0000", { clearIfNotMatch: true });
+        $('.placeholder').mask("00/00/0000", { placeholder: "__/__/____" });
+        $('.fallback').mask("00r00r0000", {
+            translation: {
+                'r': {
+                    pattern: /[\/]/,
+                    fallback: '/'
+                },
+                placeholder: "__/__/____"
+            }
+        });
+        $('.selectonfocus').mask("00/00/0000", { selectOnFocus: true });
+
+    </script>
+</body>
+</html>

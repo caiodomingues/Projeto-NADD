@@ -1,0 +1,75 @@
+﻿@model IEnumerable<NADD.Models.Avaliacao>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p class="sub-titulo">Controle de Avaliações</p>
+<div class="row">
+    <div class="col-md-4"></div>
+    <a asp-action="AvaliacaoPDF" class="btn btn-success col-md-4 botao-top">Gerar PDF</a>
+    <div class="col-md-4"></div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Disciplinas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Professor)
+            </th>
+            <!--th>
+                @Html.DisplayNameFor(model => model.DtCriacao)
+            </th>-->
+            <th>
+                @Html.DisplayNameFor(model => model.Periodo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Disciplinas.NomeDisciplina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Professor.NomeProfessor)
+            </td>
+            <!--<td class="dataaki">
+            @item.DtCriacao.ToString("dd/MM/yyyy")
+                </td>
+            -->
+            <td>
+                @Html.DisplayFor(modelItem => item.Periodo)
+            </td>
+
+            <td class="col-md-4 row">
+                <div class="col-md-1"></div>
+                <a asp-action="Edit" asp-route-id="@item.AvaliacaoId" class="btn btn-primary col-md-3">Editar</a>
+                <div class="col-md-1"></div>
+                <a asp-action="Details" asp-route-id="@item.AvaliacaoId" class="btn btn-info col-md-3">Detalhes</a>
+                <div class="col-md-1"></div>
+                <a asp-action="Delete" asp-route-id="@item.AvaliacaoId" class="btn btn-danger col-md-3">Deletar</a>
+
+                <a href="/Questoes1/Verifica/@item.AvaliacaoId" class="btn btn-success col-md-5 botao-top">Analizar Questoes</a>
+                <div class="col-md-1"></div>
+                <a asp-action="QuestoesPDF" asp-route-id="@item.AvaliacaoId" class="btn btn-success col-md-6 botao-top">Relatorio Questoes PDF</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<div class="col-md-12">
+    <div class="col-md-4"></div>
+    <a class="btn btn-success col-md-4" asp-action="Create">Nova Avaliação</a>
+    <div class="col-md-4"></div>
+</div>
+
+<script>
+    //$(".dataaki").text($(this).innerText.slice(0, 10));
+    //alert("asd")
+    console.log($(".dataaki").text())
+</script>

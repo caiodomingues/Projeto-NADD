@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - NADD</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        body {
+            width: 100%;
+            overflow: hidden !important;
+        }
+
+        .container {
+            /*padding: 0px !important;*/
+            padding-left: 1%;
+            margin: 0px !important;
+            /*background-color: red !important;*/
+        }
+        .coteudo{
+            /*background-color:lightslategray;
+            width: 100%;*/
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: deepskyblue;
+            padding: 0px !important;
+            margin: 0px !important;
+        }
+
+        .menu{
+            height: 100vh;
+            background-color:darkblue;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 menu">
+                <a class="col-md-12" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <a class="col-md-12" asp-area="" asp-controller="Areas" asp-action="Index">Areas</a>
+                <a class="col-md-12" asp-area="" asp-controller="Cursoes" asp-action="Index">Cursos</a>
+                <a class="col-md-12" asp-area="" asp-controller="Disciplinas" asp-action="Index">Disciplinas</a>
+                <a class="col-md-12" asp-area="" asp-controller="Professors" asp-action="Index">Professores</a>
+                <a class="col-md-12" asp-area="" asp-controller="Avaliacaos" asp-action="Index">valiações</a>
+                <a class="col-md-12" asp-area="" asp-controller="Questoes" asp-action="Index">Questoes</a>
+            </div>
+            <div class="col-md">
+                <div class="coteudo">
+                    @RenderBody()
+                    <hr />
+
+                    <environment include="Development">
+                        <script src="~/lib/jquery/dist/jquery.js"></script>
+                        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+                        <script src="~/js/site.js" asp-append-version="true"></script>
+                    </environment>
+                    <environment exclude="Development">
+                        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                                asp-fallback-test="window.jQuery"
+                                crossorigin="anonymous"
+                                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+                        </script>
+                        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+                                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                                crossorigin="anonymous"
+                                integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
+                        </script>
+                        <script src="~/js/site.min.js" asp-append-version="true"></script>
+                    </environment>
+
+                    @RenderSection("Scripts", required: false)
+                </div>
+
+                <div class="footer">
+                    FOOTER
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

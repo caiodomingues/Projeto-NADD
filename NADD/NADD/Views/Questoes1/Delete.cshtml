@@ -1,0 +1,54 @@
+﻿@model NADD.Models.Questoes
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2 class="sub-titulo">Deletar Questão</h2>
+
+<h3>Tem certeza que deseja EXCLUIR ?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroQuestao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumeroQuestao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Valor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tipo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Observacao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Observacao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Avaliacao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Avaliacao.AvaliacaoId)
+        </dd>
+
+    </dl>
+
+    <form asp-action="Delete" class="">
+        <div class="col-md-12">
+            <input type="hidden" asp-for="QuestoesId" />
+            <a asp-action="Index" class="btn btn-primary col-md-2">Voltar</a>
+            <div class="col-md-8"></div>
+            <input type="submit" value="Delete" class="btn btn-danger col-md-2" />
+        </div>
+    </form>
+</div>

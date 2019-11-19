@@ -1,0 +1,38 @@
+﻿@model NADD.Models.Area
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<p class="sub-titulo">Criar Area</p>
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group col-md-4">
+                <label asp-for="NomeArea" class="control-label"></label>
+                <input asp-for="NomeArea" class="form-control" />
+                <span asp-validation-for="NomeArea" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="DtCriacao" class="control-label"></label>
+                <input asp-for="DtCriacao" class="form-control" />
+                <span asp-validation-for="DtCriacao" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Status" value="1"/>
+            <div class="form-group col-md-12">
+                <a asp-action="Index" class="col-md-2 btn btn-primary">Voltar</a>
+                <div class="col-md-8"></div>
+                <input type="submit" value="Criar" class="btn btn-success col-md-2" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

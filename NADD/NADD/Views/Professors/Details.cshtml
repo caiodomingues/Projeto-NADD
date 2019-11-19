@@ -1,0 +1,37 @@
+﻿@model NADD.Models.Professor
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<p class="sub-titulo">Detalhes Professor</p>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nome Professor (a)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NomeProfessor)
+        </dd>
+        <dt>
+            E-mail
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmailProfessor)
+        </dd>
+        <dt>
+            Telefone
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TelProfessor)
+        </dd>
+        
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-primary col-md-2">Voltar</a>
+    <div class="col-md-8"></div>
+    <a asp-action="Edit" asp-route-id="@Model.ProfessorId" class="btn btn-warning col-md-2">Editar</a>
+</div>

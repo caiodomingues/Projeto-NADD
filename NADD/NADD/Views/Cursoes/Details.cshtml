@@ -1,0 +1,36 @@
+﻿@model NADD.Models.Curso
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<p class="sub-titulo">Detalhes Curso</p>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeCurso)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NomeCurso)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Area)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Area.NomeArea)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DtCriacao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DtCriacao)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-primary col-md-2">Voltar</a>
+    <div class="col-md-8"></div>
+    <a asp-action="Edit" asp-route-id="@Model.CursoId" class="btn btn-warning col-md-2">Editar</a>
+</div>

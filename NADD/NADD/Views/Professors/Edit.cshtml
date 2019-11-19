@@ -1,0 +1,45 @@
+﻿@model NADD.Models.Professor
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<p class="sub-titulo">Editar Professor</p>
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProfessorId" />
+            <div class="form-group col-md-3">
+                <label asp-for="NomeProfessor" class="control-label"></label>
+                <input asp-for="NomeProfessor" class="form-control" />
+                <span asp-validation-for="NomeProfessor" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="EmailProfessor" class="control-label"></label>
+                <input asp-for="EmailProfessor" class="form-control" />
+                <span asp-validation-for="EmailProfessor" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="TelProfessor" class="control-label"></label>
+                <input asp-for="TelProfessor" class="form-control phone_with_ddd" />
+                <span asp-validation-for="TelProfessor" class="text-danger"></span>
+            </div>
+            <div class="col-md-12">
+                <div class="">
+                    <a asp-action="Index" class="col-md-2 btn btn-primary">Voltar</a>
+                </div>
+                <div class="col-md-8"></div>
+                <div class="form-group">
+                    <input type="submit" value="Editar" class="col-md-2 btn btn-default btn btn-success " />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

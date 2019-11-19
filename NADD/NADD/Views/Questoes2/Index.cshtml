@@ -1,0 +1,56 @@
+﻿@model IEnumerable<NADD.Models.Questoes>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th> id</th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroQuestao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Avaliacao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.QuestoesId)</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroQuestao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Avaliacao.AvaliacaoId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.QuestoesId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.QuestoesId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.QuestoesId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

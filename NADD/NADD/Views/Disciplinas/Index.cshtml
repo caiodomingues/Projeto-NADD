@@ -1,0 +1,51 @@
+﻿@model IEnumerable<NADD.Models.Disciplina>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p class="sub-titulo">Controle de Disciplinas</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeDisciplina)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Curso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtCriacao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeDisciplina)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Curso.NomeCurso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DtCriacao)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.DisciplinaId" class="btn btn-primary col-md-3 opcoes">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.DisciplinaId" class="btn btn-info col-md-4 opcoes">Detalhes</a>
+                    <a asp-action="Delete" asp-route-id="@item.DisciplinaId" class="btn btn-danger col-md-3 opcoes">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="col-md-12">
+    <div class="col-md-4"></div>
+    <a class="btn btn-success col-md-4" asp-action="Create">Nova Disciplina</a>
+    <div class="col-md-4"></div>
+</div>
+

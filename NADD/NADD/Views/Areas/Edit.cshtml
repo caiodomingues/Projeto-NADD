@@ -1,0 +1,49 @@
+﻿@model NADD.Models.Area
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<p class="sub-titulo">Editar Area</p>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AreaId" />
+            <div class="form-group col-md-4">
+                <label asp-for="NomeArea" class="control-label"></label>
+                <input asp-for="NomeArea" class="form-control" />
+                <span asp-validation-for="NomeArea" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="DtCriacao" class="control-label"></label>
+                <input asp-for="DtCriacao" class="form-control" />
+                <span asp-validation-for="DtCriacao" class="text-danger"></span>
+            </div>
+            @*<div class="form-group col-md-4">
+                <label asp-for="Status" class="control-label"></label>
+                <select asp-for="Status" class="form-control" name="Status" id="Status">
+                    <option value="1">Sim</option>
+                    <option value="0">Não</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>*@
+            <div class="col-md-12">
+                <div class="">
+                    <a asp-action="Index" class="col-md-2 btn btn-primary">Voltar</a>
+                </div>
+                <div class="col-md-8"></div>
+                <div class="form-group">
+                    <input type="submit" value="Editar" class="col-md-2 btn btn-default btn btn-success " />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,65 @@
+﻿@model NADD.Models.Avaliacao
+
+@{
+    ViewData["Title"] = "Details";
+    var ValorQuestExp = "";
+    if (Model.ValorQuestExp == "0") { ValorQuestExp = "Não"; } else { ValorQuestExp = "Sim"; }
+
+    var ValorProvaExp = "";
+    if (Model.ValorProvaExp == "0") { ValorProvaExp = "Não"; } else { ValorProvaExp = "Sim"; }
+    
+    var Eqdistvquest = "";
+    if (Model.Eqdistvquest == "0") { Eqdistvquest = "Não"; } else { Eqdistvquest = "Sim"; }
+    
+    var PQuestMultdisc = "";
+    if (Model.PQuestMultdisc == "0") { PQuestMultdisc = "Não"; } else { PQuestMultdisc = "Sim"; }
+    
+    var Ppquestcontext = "";
+    if (Model.Ppquestcontext == "0") { Ppquestcontext = "Não"; } else { Ppquestcontext = "Sim"; }
+}
+
+<p class="sub-titulo">Detalhes da Avaliação</p>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.DtCriacao)</th>
+                <th>@Html.DisplayNameFor(model => model.QtyQuestoes)</th>
+                <th>@Html.DisplayNameFor(model => model.ValorQuestExp)</th>
+                <th>@Html.DisplayNameFor(model => model.ValorProvaExp)</th>
+                <th>@Html.DisplayNameFor(model => model.Eqdistvquest)</th>
+                <th>@Html.DisplayNameFor(model => model.PQuestMultdisc)</th>
+                <th>@Html.DisplayNameFor(model => model.Ppquestcontext)</th>
+                <th>@Html.DisplayNameFor(model => model.Observacao)</th>
+                <th>@Html.DisplayNameFor(model => model.Disciplinas)</th>
+                <th>@Html.DisplayNameFor(model => model.Professor)</th>
+                <th>@Html.DisplayNameFor(model => model.TotValor)</th>
+                <th>@Html.DisplayNameFor(model => model.Media)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Html.DisplayFor(model => model.DtCriacao)</td>
+                <td>@Html.DisplayFor(model => model.QtyQuestoes)</td>
+                <td>@ValorQuestExp</td>
+                <td>@ValorProvaExp</td>
+                <td>@Eqdistvquest</td>
+                <td>@PQuestMultdisc</td>
+                <td>@Ppquestcontext</td>
+                <th>@Html.DisplayFor(model => model.Observacao)</th>
+                <td>@Html.DisplayFor(model => model.Disciplinas.NomeDisciplina)</td>
+                <td>@Html.DisplayFor(model => model.Professor.NomeProfessor)</td>
+                <td>@Html.DisplayFor(model => model.TotValor)</td>
+                <td>@Html.DisplayFor(model => model.Media)</td>
+            </tr>
+        
+        </tbody>
+    </table>
+   
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary col-md-2">Voltar</a>
+    <div class="col-md-8"></div>
+    <a asp-action="Edit" asp-route-id="@Model.AvaliacaoId" class="btn btn-warning col-md-2">Editar</a>
+</div>

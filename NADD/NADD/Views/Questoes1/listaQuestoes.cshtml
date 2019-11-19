@@ -1,0 +1,55 @@
+﻿@model List<NADD.Models.Questoes>
+
+@{
+    ViewData["Title"] = "Index";
+    var avaId = "";
+    @foreach (var item in Model)
+    {
+        //avaPeriodo = item.Avaliacao.Periodo;
+        avaId = item.AvaliacaoId.ToString();
+        //avaDisc= item.Avaliacao.Disciplinas.NomeDisciplina;
+    }
+}
+<!--<p class="sub-titulo">Controle de Questões</p>-->
+<p class="sub-titulo">Listagem de Questões</p>
+<table class="table">
+    <thead>
+        <tr>
+            <!--<th>Id Questao</th>-->
+            <th>Número Questão</th>
+            <th>Tipo Questão</th>
+            <th>Obs.</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <!--<td class="col-md-3">@Html.DisplayFor(modelItem => item.QuestoesId)</td>-->
+                <td class="col-md-3">@Html.DisplayFor(modelItem => item.NumeroQuestao)</td>
+                <td class="col-md-3">
+                    @{  
+                        var opcao = "";
+                        if (@item.Tipo.ToString() == "1")
+                        { opcao = "Textual"; } else { opcao = "Multipla escolha"; }
+                    }
+                    @opcao
+                </td>
+                <td class="col-md-3">@Html.DisplayFor(modelItem => item.Observacao)</td>
+                <td class="col-md-3">@Html.DisplayFor(modelItem => item.Avaliacao.Periodo)</td>
+                <td class="col-md-3">
+                    <a href="/Questoes1/Edit/@item.QuestoesId" class="col-md-12 btn btn-primary">Editar</a>
+                </td>
+                <td class="col-md-3"><a href="/Questoes1/Delete/@item.QuestoesId" class="col-md-12 btn btn-danger">Deletar</a></td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="col-md-12">
+    <a asp-action="Create" id="addQuestao" class="btn btn-info btn-lg col-md-4"> <span class="glyphicon glyphicon-plus"></span> Adicionar Questão</a>
+    <div class="col-md-4"></div>
+    <a href="/Avaliacaos/finalizarProva/@avaId" id="addQuestao" class="btn btn-success btn-lg col-md-4"> <span class="	glyphicon glyphicon-ok"></span> Considerações finais da Avaliação </a>
+</div>

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<NADD.Models.Avaliacao>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<p class="sub-titulo">Controle de Questões</p>
+<p class="sub-titulo">Listagem de Provas Cadastradas</p>
+<table class="table">
+    <thead>
+        <tr>
+            <!--<th>@Html.DisplayNameFor(model => model.AvaliacaoId)</th>-->
+            <th>@Html.DisplayNameFor(model => model.Periodo)</th>
+            <th>@Html.DisplayNameFor(model => model.Disciplinas.NomeDisciplina)</th>
+            <th>@Html.DisplayNameFor(model => model.Professor.NomeProfessor)</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <!--<td class="col-md-3">@Html.DisplayFor(modelItem => item.AvaliacaoId)</td>-->
+            <td class="col-md-3">@Html.DisplayFor(modelItem => item.Periodo)</td>
+            <td class="col-md-3">@Html.DisplayFor(modelItem => item.Disciplinas.NomeDisciplina)</td>
+            <td class="col-md-3">@Html.DisplayFor(modelItem => item.Professor.NomeProfessor)</td>
+            <td class="col-md-12">
+                <a href="Questoes1/Verifica/@item.AvaliacaoId" class="col-md-12 btn btn-primary">Analizar</a>
+            </td>
+
+        </tr>
+        }
+    </tbody>
+</table>

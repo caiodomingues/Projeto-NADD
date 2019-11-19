@@ -1,0 +1,47 @@
+﻿@model IEnumerable<NADD.Models.Area>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2 class="sub-titulo">Controle de Areas</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeArea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtCriacao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="col-md-4">
+                    @Html.DisplayFor(modelItem => item.NomeArea)
+                </td>
+                <td class="col-md-4">
+                    @Html.DisplayFor(modelItem => item.DtCriacao)
+                </td>
+                <td class="col-md-4 row">
+                    <div class="col-md-1"></div>
+                    <a asp-action="Edit" asp-route-id="@item.AreaId" class="btn btn-primary col-md-3">Editar</a>
+                    <div class="col-md-1"></div>
+                    <a asp-action="Details" asp-route-id="@item.AreaId" class="btn btn-info col-md-3">Detalhes</a>
+                    <div class="col-md-1"></div>
+                    <a asp-action="Delete" asp-route-id="@item.AreaId" class="btn btn-danger col-md-3">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="col-md-12">
+    <div class="col-md-4"></div>
+    <a class="btn btn-success col-md-4" asp-action="Create">Nova Area</a>
+    <div class="col-md-4"></div>
+</div>
